@@ -13,7 +13,7 @@ namespace DavidAndino
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Interes());
+            Application.Run(new MenuPrincipal());
         }
     }
 }

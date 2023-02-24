@@ -1,18 +1,19 @@
 ﻿using Syncfusion.WinForms.Controls;
 using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DavidAndino
 {
-    public partial class Interes : SfForm
+    public partial class Descuento : SfForm
     {
-        public Interes()
+        public Descuento()
         {
             InitializeComponent();
 
             this.Style.TitleBar.Height = 26;
-            this.Style.TitleBar.BackColor = Color.DarkGray;
+            this.Style.TitleBar.BackColor = Color.White;
             this.Style.TitleBar.IconBackColor = Color.FromArgb(15, 161, 212);
             this.BackColor = Color.White;
             this.Style.TitleBar.ForeColor = ColorTranslator.FromHtml("#343434");
@@ -25,29 +26,28 @@ namespace DavidAndino
             this.Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center;
             this.Style.TitleBar.TextVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
         }
-        //definiendo e inicializando constante global
-        const double tasa = 0.015;
-
-        private void calcularButton_Click(object sender, EventArgs e)
+        private async void calcularButton_Click(object sender, System.EventArgs e)
         {
-            //definicion e iniciacion de variables locales con los datos que el usuario ingrese en cada caja de texto
-            double capital = 200000;
-            int meses = 12;
+            int cantidad = Convert.ToInt32(cantidadTextBox.Text);
+            double precio = Convert.ToDouble(precioTextBox.Text), subTotal = 0;
+            int cantidad2 = Convert.ToInt32(textBox2.Text);
+            double precio2 = Convert.ToDouble(textBox1.Text);
 
-            //invocando funcion que calcula interes simple e imprimiendo de una vez en la caja de texto asignada para tal uso
-            IGeneradoTextBox.Text = Convert.ToString(interes(capital, meses));
+            subTotal = (precio * cantidad) + (precio2 * cantidad2);
+
+            MessageBox.Show("El total a pagar es: " + (subTotal - await calcularDesctoAsync(subTotal)));
         }
 
-        private double interes(double capital, int meses)
+        private async Task<double> calcularDesctoAsync(double subtotal)
         {
-            double interes = 0;//definiendo e incializnado variable que se retornara con un valor
-            //proceso
-            for (int i = 0; i < meses; i++)
+
+            double descuento = await Task.Run(() =>
             {
-                interes = capital * tasa * meses;
-                Math.Round(interes, 2);//redondeando el valor que salga  del calculo de interes para que solo muestres 2 decimales despues del punto
-            }
-            return interes;
+                return subtotal * 0.15;
+            });
+
+            Math.Round(descuento, 2);
+            return descuento;
         }
 
         private void volverMenuButton_Click(object sender, EventArgs e)

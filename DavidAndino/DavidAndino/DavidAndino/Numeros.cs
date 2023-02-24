@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace DavidAndino
 {
-    public partial class Interes : SfForm
+    public partial class Numeros : SfForm
     {
-        public Interes()
+        public Numeros()
         {
             InitializeComponent();
 
             this.Style.TitleBar.Height = 26;
-            this.Style.TitleBar.BackColor = Color.DarkGray;
+            this.Style.TitleBar.BackColor = Color.White;
             this.Style.TitleBar.IconBackColor = Color.FromArgb(15, 161, 212);
             this.BackColor = Color.White;
             this.Style.TitleBar.ForeColor = ColorTranslator.FromHtml("#343434");
@@ -25,29 +25,33 @@ namespace DavidAndino
             this.Style.TitleBar.TextHorizontalAlignment = HorizontalAlignment.Center;
             this.Style.TitleBar.TextVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
         }
-        //definiendo e inicializando constante global
-        const double tasa = 0.015;
 
-        private void calcularButton_Click(object sender, EventArgs e)
+        private void mostrarNumButton_Click(object sender, EventArgs e)
         {
-            //definicion e iniciacion de variables locales con los datos que el usuario ingrese en cada caja de texto
-            double capital = 200000;
-            int meses = 12;
 
-            //invocando funcion que calcula interes simple e imprimiendo de una vez en la caja de texto asignada para tal uso
-            IGeneradoTextBox.Text = Convert.ToString(interes(capital, meses));
-        }
+            string[] numeros = new string[100];//creando arreglo  unidimensional
+            int aux = 0;//definiendo e inicializando variable  auxiliar
 
-        private double interes(double capital, int meses)
-        {
-            double interes = 0;//definiendo e incializnado variable que se retornara con un valor
-            //proceso
-            for (int i = 0; i < meses; i++)
+            for (int i = 0; i < 100; i++)
             {
-                interes = capital * tasa * meses;
-                Math.Round(interes, 2);//redondeando el valor que salga  del calculo de interes para que solo muestres 2 decimales despues del punto
+                numeros[i] = Convert.ToString(i + 1);
+                aux = Convert.ToInt16(numeros[i]);
+                //sustituyendo elemento guardado en cada posicion del vector dependiendo del cumplimiento de cada una de estas condiciones:
+                if (aux % 3 == 0)
+                {
+                    numeros[i] = "David";
+                }
+                else if (aux % 5 == 0)
+                {
+                    numeros[i] = "Andino";
+                }
+                if ((aux % 3 == 0) && (aux % 5 == 0))
+                {
+                    numeros[i] = "DavidAndino";
+                }
+
+                listBox1.Items.Add(numeros[i]);
             }
-            return interes;
         }
 
         private void volverMenuButton_Click(object sender, EventArgs e)
@@ -57,4 +61,6 @@ namespace DavidAndino
             Hide();
         }
     }
+
+
 }
