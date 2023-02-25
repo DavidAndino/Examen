@@ -69,13 +69,16 @@
             // 
             // Numeros
             // 
+            this.AcceptButton = this.mostrarNumButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(488, 198);
             this.Controls.Add(this.volverMenuButton);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.mostrarNumButton);
             this.Name = "Numeros";
+            this.Style.BackColor = System.Drawing.Color.CornflowerBlue;
             this.Style.MdiChild.IconHorizontalAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             this.Text = "Numeros";

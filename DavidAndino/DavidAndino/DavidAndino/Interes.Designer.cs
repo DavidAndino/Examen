@@ -145,8 +145,10 @@
             // 
             // IGeneradoTextBox
             // 
-            this.IGeneradoTextBox.Enabled = false;
-            this.IGeneradoTextBox.Location = new System.Drawing.Point(241, 275);
+            this.IGeneradoTextBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.IGeneradoTextBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IGeneradoTextBox.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.IGeneradoTextBox.Location = new System.Drawing.Point(149, 568);
             this.IGeneradoTextBox.Name = "IGeneradoTextBox";
             this.IGeneradoTextBox.ReadOnly = true;
             this.IGeneradoTextBox.Size = new System.Drawing.Size(96, 26);
@@ -158,12 +160,12 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(65, 276);
+            this.label5.Location = new System.Drawing.Point(10, 568);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 22);
+            this.label5.Size = new System.Drawing.Size(132, 22);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Interés Generado:";
+            this.label5.Text = "Interés Total:";
             // 
             // errorProvider1
             // 
@@ -171,11 +173,15 @@
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.listBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(257, 113);
+            this.listBox1.Items.AddRange(new object[] {
+            "Mes     Interés"});
+            this.listBox1.Location = new System.Drawing.Point(149, 263);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.Size = new System.Drawing.Size(143, 284);
             this.listBox1.TabIndex = 11;
             // 
             // volverMenuButton
@@ -193,10 +199,11 @@
             // 
             // Interes
             // 
+            this.AcceptButton = this.calcularButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DavidAndino.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(403, 320);
+            this.ClientSize = new System.Drawing.Size(403, 610);
             this.Controls.Add(this.volverMenuButton);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.IGeneradoTextBox);

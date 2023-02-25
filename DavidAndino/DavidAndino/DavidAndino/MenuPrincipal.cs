@@ -14,7 +14,7 @@ namespace DavidAndino
             this.Style.TitleBar.Height = 26;
             this.Style.TitleBar.BackColor = Color.White;
             this.Style.TitleBar.IconBackColor = Color.FromArgb(15, 161, 212);
-            this.BackColor = Color.White;
+            this.BackColor = Color.CornflowerBlue;
             this.Style.TitleBar.ForeColor = ColorTranslator.FromHtml("#343434");
             this.Style.TitleBar.CloseButtonForeColor = Color.DarkGray;
             this.Style.TitleBar.MaximizeButtonForeColor = Color.DarkGray;
